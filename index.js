@@ -11,12 +11,12 @@ let schobj = new mongoose.Schema({
 
 let dm = mongoose.model("users", schobj); 
 
-mongoose.connect("mongodb://127.0.0.1:27017/hfs3db")
+mongoose.connect("mongodb://localhost:27017/hfs3db")
     .then(() => {
         console.log("connection okay");
     })
     .catch((err) => {  
-        console.log("error in db connection", err);
+        console.log("error in db connection", err.message);
     });
 
 let app = express();
@@ -43,6 +43,6 @@ app.get("/", (req, res) => {
         });
 });
 
-app.listen(3000, () => {
-    console.log("Server is running on http://localhost:3000/");
+app.listen(5000, () => {
+    console.log("Server is running on http://localhost:5000/");
 });
